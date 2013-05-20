@@ -1,0 +1,34 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{babelbib}
+\usepackage{verbatim}
+\usepackage{wasysym,xkeyval}
+
+\makeatletter
+\define@cmdkey{address}{name}{}
+\define@cmdkey{address}{phone}{}
+\define@cmdkey{address}{address}{}
+\newcommand{\makeaddress}[1][]{%
+  {\setkeys{address}{name=,address=,phone=,#1}%
+  \begin{description}
+    \item[Nom:] \cmdKV@address@name
+    \item[Téléphone:] \cmdKV@address@phone
+    \item[Adresse:] \cmdKV@address@address
+  \end{description}
+}}
+\makeatother
+
+\title{Bottin Math-Stat 2013-2014}
+\date{3 Septembre 2013}
+\author{Alexandre Daigle}
+
+\begin{document}
+
+\maketitle
+
+\input{address.tex}
+
+\end{document}
